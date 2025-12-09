@@ -1,8 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {PostListItem} from '../post-list-item/post-list-item';
-import {map} from 'rxjs';
-import {ActivatedRoute} from '@angular/router';
 import {AsyncPipe} from '@angular/common';
+import {PostsService} from '../../services/posts.service';
 
 @Component({
   selector: 'app-post-list',
@@ -15,8 +14,6 @@ import {AsyncPipe} from '@angular/common';
   styleUrl: './post-list.component.scss',
 })
 export class PostListComponent {
-  private route = inject(ActivatedRoute);
-  posts$ = this.route.data.pipe(
-    map(data => data['posts']),
-  );
+  private postsService = inject(PostsService);
+  posts$ = this.postsService.getPosts();
 }
