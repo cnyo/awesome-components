@@ -1,0 +1,11 @@
+@if (comments.length) {
+  <mat-list>
+    <h2></h2>
+    @for (comment of comments; track comment.id) {
+      <mat-list-item>
+        <span>{{ comment.comment }}</span>
+        <span>{{ comment.createdDate | date }}</span>
+      </mat-list-item>
+    }
+  </mat-list>
+}
