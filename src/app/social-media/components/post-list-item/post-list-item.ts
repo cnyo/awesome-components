@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, output} from '@angular/core';
 import {Post} from '../../models/post';
 import {DatePipe, TitleCasePipe} from '@angular/common';
 import {MATERIAL_IMPORTS} from '../../../shared/material.imports';
@@ -17,4 +17,9 @@ import {Comments} from '../../../shared/components/comments/comments';
 })
 export class PostListItem {
   @Input() post!: Post;
+  postCommented = output<{ comment: string, postId: number }>();
+
+  onNewComment(comment: string) {
+    this.postCommented.emit({comment, postId: this.post.id});
+  }
 }

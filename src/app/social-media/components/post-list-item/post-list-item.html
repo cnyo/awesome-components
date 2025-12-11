@@ -12,6 +12,6 @@
       <img mat-card-image [src]="post.imageUrl" [alt]="post.title">
     }
     <span class="post-content">{{ post.content }}</span>
-    <app-comments [comments]="post.comments"></app-comments>
+    <app-comments [comments]="post.comments" (newComment)="onNewComment($event)"></app-comments>
   </mat-card-content>
 </mat-card>

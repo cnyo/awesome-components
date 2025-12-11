@@ -16,4 +16,8 @@ import {PostsService} from '../../services/posts.service';
 export class PostListComponent {
   private postsService = inject(PostsService);
   posts$ = this.postsService.getPosts();
+
+  protected onNewComment(postCommented: { comment: string, postId: number}) {
+    this.postsService.addNewComment(postCommented);
+  }
 }
