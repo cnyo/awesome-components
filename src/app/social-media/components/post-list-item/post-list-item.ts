@@ -1,16 +1,19 @@
 import {Component, Input, output} from '@angular/core';
 import {Post} from '../../models/post';
-import {DatePipe, TitleCasePipe} from '@angular/common';
+import {TitleCasePipe} from '@angular/common';
 import {MATERIAL_IMPORTS} from '../../../shared/material.imports';
 import {Comments} from '../../../shared/components/comments/comments';
+import {ShortenPipe} from '../../../shared/pipes/shorten.pipe';
+import {TimeAgoPipe} from '../../../shared/pipes/time-ago.pipe';
 
 @Component({
   selector: 'app-post-list-item',
   imports: [
     TitleCasePipe,
-    DatePipe,
     ...MATERIAL_IMPORTS,
-    Comments
+    Comments,
+    ShortenPipe,
+    TimeAgoPipe
   ],
   templateUrl: './post-list-item.html',
   styleUrl: './post-list-item.scss',

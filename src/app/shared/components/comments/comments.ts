@@ -1,15 +1,15 @@
 import {Component, input, OnInit, output} from '@angular/core';
 import {Comment} from '../../../core/models/comment';
 import {MATERIAL_IMPORTS} from '../../material.imports';
-import {DatePipe} from '@angular/common';
 import {FormBuilder, FormControl, ReactiveFormsModule, Validators} from '@angular/forms';
+import {TimeAgoPipe} from '../../pipes/time-ago.pipe';
 
 @Component({
   selector: 'app-comments',
   imports: [
     MATERIAL_IMPORTS,
-    DatePipe,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TimeAgoPipe
   ],
   templateUrl: './comments.html',
   styleUrl: './comments.scss',
