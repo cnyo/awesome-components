@@ -5,6 +5,7 @@ import {MATERIAL_IMPORTS} from '../../../shared/material.imports';
 import {Comments} from '../../../shared/components/comments/comments';
 import {ShortenPipe} from '../../../shared/pipes/shorten.pipe';
 import {TimeAgoPipe} from '../../../shared/pipes/time-ago.pipe';
+import {HighlightDirective} from '../../../shared/directives/highlight.directive';
 
 @Component({
   selector: 'app-post-list-item',
@@ -13,7 +14,8 @@ import {TimeAgoPipe} from '../../../shared/pipes/time-ago.pipe';
     ...MATERIAL_IMPORTS,
     Comments,
     ShortenPipe,
-    TimeAgoPipe
+    TimeAgoPipe,
+    HighlightDirective
   ],
   templateUrl: './post-list-item.html',
   styleUrl: './post-list-item.scss',
