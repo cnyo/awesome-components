@@ -10,10 +10,10 @@
 @if (comments().length) {
   <mat-list>
     <h2>Commentaires</h2>
-    @for (comment of comments(); track comment.id) {
-      <mat-list-item class="list-item-animated" animate.enter="enter-animation">
-        <span>{{ comment.comment }}</span>
-        <span>{{ comment.createdDate | timeAgo }}</span>
+    @for (comment of comments(); track comment.id; let id = $index) {
+      <mat-list-item class="list-item-animated" [style.--index]="id" animate.enter="enter-animation">
+        <span matListItemLine class="comment-text">{{ comment.comment }}</span>
+        <span matListItemLine class="comment-date">{{ comment.createdDate | timeAgo }}</span>
       </mat-list-item>
     }
   </mat-list>

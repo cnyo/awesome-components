@@ -47,20 +47,59 @@ mat-list {
     z-index: 2;
     transition: all 100ms ease-in-out;
   }
+}
 
-  .enter-animation {
-    animation: slide-fade 1s;
+.enter-animation {
+  @for $i from 1 through 20 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{($i - 1) * 50}ms;
+    }
+  }
+
+  animation: slide-fade 1.25s ease-out forwards;
+
+  .comment-text {
+    animation: slide-fade-span 500ms ease-out forwards;
+    animation-delay: 250ms;
+    opacity: 0;
+  }
+
+  .comment-date {
+    animation: slide-fade-span 500ms ease-out forwards;
+    animation-delay: 500ms;
+    opacity: 0;
   }
 }
 
 @keyframes slide-fade {
-  from {
+  0% {
     transform: translateX(-100%);
     opacity: 0;
-    background-color: rgb(201, 157, 242);
+    background-color: rgb(248, 189, 149);
   }
-  to {
+  50% {
     transform: translateX(0);
     opacity: 1;
+  }
+  100% {
     background-color: white;
-  }}
+  }
+}
+
+@keyframes slide-fade-bg {
+  from {
+    background-color: rgb(248, 189, 149);
+  }
+  to {
+    background-color: white;
+  }
+}
+
+@keyframes slide-fade-span {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
