@@ -13,3 +13,54 @@ mat-list-item {
 mat-form-field {
   width: 90%;
 }
+
+.comments-row {
+  display: flex;
+  border-top: thin solid #555;
+  padding-top: 10px;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+
+  mat-form-field {
+    flex: 1;
+  }
+}
+
+mat-list {
+  h2 {
+    margin-bottom: 1rem;
+  }
+}
+
+.list-item-animated {
+  transform: scale(1);
+  background-color: white;
+  z-index: 1;
+  transition: all 500ms ease-in-out;
+  cursor: pointer;
+  border-radius: 4px;
+
+  &:hover {
+    transform: scale(1.02);
+    background-color: rgb(201, 157, 242);
+    z-index: 2;
+    transition: all 100ms ease-in-out;
+  }
+
+  .enter-animation {
+    animation: slide-fade 1s;
+  }
+}
+
+@keyframes slide-fade {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+    background-color: rgb(201, 157, 242);
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+    background-color: white;
+  }}

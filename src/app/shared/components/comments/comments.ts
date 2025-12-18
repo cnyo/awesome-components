@@ -12,7 +12,7 @@ import {TimeAgoPipe} from '../../pipes/time-ago.pipe';
     TimeAgoPipe
   ],
   templateUrl: './comments.html',
-  styleUrl: './comments.scss',
+  styleUrl: './comments.scss'
 })
 export class Comments implements OnInit {
   comments = input<Comment[]>([]);
@@ -30,6 +30,13 @@ export class Comments implements OnInit {
 
   protected onLeaveComments() {
     this.newComment.emit(this.commentControl.value);
+    const maxId = Math.max(...this.comments().map(comment => comment.id));
+    this.comments().unshift({
+      id: maxId + 1,
+      userId: 1,
+      comment: this.commentControl.value,
+      createdDate: new Date().toISOString()
+    });
     this.commentControl.reset();
   }
 }
